@@ -1,0 +1,73 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "assetId": {
+      "type": "string"
+    },
+    "serialNumber": {
+      "type": "string"
+    },
+    "make": {
+      "type": "string"
+    },
+    "model": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "categoryId": {
+      "type": "string"
+    },
+    "purchaseDate": {
+      "type": "string"
+    },
+    "purchasePrice": {
+      "type": "integer"
+    },
+    "currentValue": {
+      "type": "integer"
+    },
+    "status": {
+      "type": "string"
+    },
+    "branch": {
+      "type": "string"
+    },
+    "warrantyEndDate": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "scrapDetails": {
+      "type": "object",
+      "properties": {
+        "scrapDate": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        }
+      },
+      "required": ["scrapDate", "reason"]
+    }
+  },
+  "required": [
+    "assetId",
+    "serialNumber",
+    "make",
+    "model",
+    "type",
+    "categoryId",
+    "purchaseDate",
+    "purchasePrice",
+    "currentValue",
+    "status",
+    "branch",
+    "warrantyEndDate",
+    "notes",
+    "scrapDetails"
+  ]
+}
