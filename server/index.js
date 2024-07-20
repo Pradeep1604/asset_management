@@ -8,6 +8,7 @@ const compression = require("compression");
  * Internal Dependencies
  */
 const config = require("./config.json");
+require("dotenv").config();
 
 const server = express();
 
@@ -21,12 +22,23 @@ server.use(compression());
  */
 const auth = (req, res, next) => {
   const authHeader = req.headers["authorization"];
+  if (!authHeader) {
+    // return unauthorized error
+  }
 
   const base64Credentials = authHeader.split(" ")[1];
   const credentials = Buffer.from(base64Credentials, "base64").toString(
     "ascii"
   );
   const [username, password] = credentials.split(":");
+  if (
+    !username ||
+    !password ||
+    username !== process.env.USER_NAME ||
+    password !== process.env.PASSWORD
+  ) {
+    // return unauthorized error
+  }
 
   return next();
 };
